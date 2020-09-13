@@ -4,7 +4,8 @@ $(function () {
 
   //   获取登录后保存在本地的token
   //   var token = window.localStorage.getItem('token') || ''
-  (function () {
+  getUserInfo();
+  function getUserInfo() {
     $.ajax({
       url: "/my/userinfo",
       // 请求头设置（s不要忘）
@@ -16,7 +17,9 @@ $(function () {
         //   console.log(res)
 
         //   res.data.user_pic
-        if (res.status == 1){return}
+        if (res.status == 1) {
+          return;
+        }
         var resname = res.data.nickname || res.data.username;
         $("#welcome").html("欢迎&nbsp&nbsp" + resname);
 
@@ -44,7 +47,8 @@ $(function () {
       //   }
       // },
     });
-  })();
+  }
+  window.getUserInfo = getUserInfo;
 
   // 用户退出
   $("#btn-logout").click(function (e) {
