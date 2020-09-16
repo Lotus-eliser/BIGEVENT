@@ -106,7 +106,19 @@ function renderPage(total) {
   })
 
 
+//编辑文章
+$('tbody').on('click','.edit',function(e){
+  // console.log('---------------');
+  e.preventDefault()
+  var strEditHtml = $('#tpl-list').html()
+  editIndex = layui.layer.open({
+    type:1,
+    area:['500px','250px'],
+    title:'编辑文章',
+    content:strEditHtml,
+  })
 
+})
 
 
 
